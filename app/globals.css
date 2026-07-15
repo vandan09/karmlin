@@ -69,10 +69,16 @@ a:hover { color: #f2e3c4; }
   .service-icon-bg { width: 44px !important; height: 44px !important; }
   .service-icons .hlabel { font-size: 8px !important; letter-spacing: 0.06em !important; }
 
+  /* Hero — scale down floating word cards */
+  .wordcard { font-size: clamp(11px, 3vw, 18px) !important; padding: 9px 14px !important; border-radius: 12px !important; }
+
   /* Session flow — collapse canvas-visual column; text expands full-width */
   .sec5-visual { flex: 0 0 0px !important; min-width: 0 !important; overflow: hidden !important; }
   .sec5-text-col { padding: 0 8vw !important; }
 
-  /* Energy flow — move text labels to right side so they don't overlap figure */
-  .figtext-wrap { left: auto !important; right: 4% !important; text-align: right !important; }
+  /* Energy flow — hide overlapping text labels on mobile, show stacked version */
+  .figtext-wrap { display: none !important; }
+  .figtext-mobile { display: block !important; }
+  /* Narrow figure slot so animation isn't clipped */
+  #fig-slot { width: 200px !important; }
 }

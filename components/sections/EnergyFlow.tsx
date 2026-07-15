@@ -38,6 +38,7 @@ export function EnergyFlow() {
           {/* The canvas in HeroField.tsx draws into this slot */}
           <div id="fig-slot" style={{ position: 'relative', width: 320, height: 'calc(100vh - 200px)' }} aria-hidden="true" />
 
+          {/* Desktop: floating text labels beside the figure */}
           {[
             { top: '24%', text: 'Energy enters at the crown and flows down.' },
             { top: '47%', text: 'It meets the tension knotted in your chest.' },
@@ -58,6 +59,25 @@ export function EnergyFlow() {
               </p>
             </div>
           ))}
+
+          {/* Mobile only: stacked phrases below the figure */}
+          <div className="figtext-mobile" style={{ display: 'none', position: 'absolute', bottom: '4%', left: 0, right: 0, textAlign: 'center', padding: '0 8vw' }}>
+            {[
+              'Energy enters at the crown and flows down.',
+              'It meets the tension knotted in your chest.',
+              'It warms it, loosens it — and you settle.',
+            ].map((text, i) => (
+              <p key={i} className="figline" style={{
+                opacity: 0, transition: 'opacity 1.1s ease-out',
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: 'clamp(17px, 4.5vw, 22px)',
+                fontWeight: 300, lineHeight: 1.4,
+                color: '#eee4d6', margin: '0 0 10px',
+              }}>
+                {text}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
