@@ -1,9 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SESSION_STAGES } from '@/lib/constants';
 
 export function SessionFlow() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
     <section
       id="sec5"
@@ -14,11 +22,18 @@ export function SessionFlow() {
         {/* Canvas draws into this half */}
         <div id="sec5visual" className="sec5-visual" style={{ flex: 1, position: 'relative' }} aria-hidden="true" />
 
-        <div className="sec5-text-col" style={{ flex: 1, position: 'relative', display: 'flex', alignItems: 'center', padding: '0 6vw 0 3vw' }}>
-          <div style={{ maxWidth: '26em' }}>
+        <div
+          className="sec5-text-col"
+          style={{
+            flex: 1, position: 'relative', display: 'flex',
+            alignItems: isMobile ? 'flex-start' : 'center',
+            padding: isMobile ? '88px 8vw 0' : '0 6vw 0 3vw',
+          }}
+        >
+          <div style={{ maxWidth: isMobile ? '100%' : '26em' }}>
             <p style={{
               fontSize: 12, letterSpacing: '0.28em', textTransform: 'uppercase',
-              color: 'rgba(233,207,168,0.78)', marginBottom: 40, margin: '0 0 40px',
+              color: 'rgba(233,207,168,0.78)', margin: '0 0 40px',
             }}>
               What a session feels like
             </p>
@@ -30,8 +45,8 @@ export function SessionFlow() {
               >
                 <h3 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 'clamp(26px, 3vw, 38px)',
-                  fontWeight: 300, color: '#efe6d8', marginBottom: 8, margin: '0 0 8px',
+                  fontSize: isMobile ? 'clamp(24px, 6vw, 32px)' : 'clamp(26px, 3vw, 38px)',
+                  fontWeight: 300, color: '#efe6d8', margin: '0 0 8px',
                 }}>
                   {stage.label}
                 </h3>

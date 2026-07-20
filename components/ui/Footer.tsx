@@ -1,10 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BookingModal } from './BookingModal';
 
 export function Footer() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <>
@@ -24,7 +31,7 @@ export function Footer() {
         }}>
           KARMLIN
         </span>
-        <div style={{ display: 'flex', gap: 26, alignItems: 'center', fontSize: 13, color: 'rgba(233,224,212,0.68)' }}>
+        <div style={{ display: 'flex', flexWrap: isMobile ? 'wrap' : 'nowrap', gap: isMobile ? 14 : 26, alignItems: 'center', fontSize: 13, color: 'rgba(233,224,212,0.68)' }}>
           <a
             href="mailto:hello@karmlin.studio"
             style={{ color: 'rgba(233,224,212,0.68)', textDecoration: 'none' }}
@@ -58,7 +65,9 @@ export function Footer() {
               background: 'rgba(233,207,168,0.9)',
               border: 'none', padding: '10px 22px',
               borderRadius: 30, cursor: 'pointer',
+              whiteSpace: 'nowrap',
               outline: 'none',
+              ...(isMobile ? { flex: '1 1 100%', textAlign: 'center' } : {}),
             }}
             onFocus={e =>    { e.currentTarget.style.boxShadow = '0 0 0 2px rgba(233,207,168,0.8)'; }}
             onBlur={e =>     { e.currentTarget.style.boxShadow = 'none'; }}

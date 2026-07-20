@@ -72,9 +72,12 @@ a:hover { color: #f2e3c4; }
   /* Hero — scale down floating word cards */
   .wordcard { font-size: clamp(11px, 3vw, 18px) !important; padding: 9px 14px !important; border-radius: 12px !important; }
 
-  /* Session flow — collapse canvas-visual column; text expands full-width */
+  /* Session flow — collapse canvas-visual column; text handled in JSX */
   .sec5-visual { flex: 0 0 0px !important; min-width: 0 !important; overflow: hidden !important; }
-  .sec5-text-col { padding: 0 8vw !important; }
+
+  /* Nav — prevent button text wrapping, tighten gap on small screens */
+  nav { gap: 16px !important; }
+  .nav-book-btn { padding: 9px 16px !important; font-size: 12px !important; }
 
   /* Energy flow — hide overlapping text labels on mobile, show stacked version */
   .figtext-wrap { display: none !important; }

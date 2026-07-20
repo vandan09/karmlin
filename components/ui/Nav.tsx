@@ -36,6 +36,7 @@ export function Nav() {
         </Link>
         <button
           onClick={() => setOpen(true)}
+          className="nav-book-btn"
           style={{
             fontFamily: "'Karla', sans-serif",
             fontSize: 13, letterSpacing: '0.08em',
@@ -43,6 +44,7 @@ export function Nav() {
             background: 'rgba(233,207,168,0.9)',
             border: 'none', padding: '11px 22px',
             borderRadius: 30, cursor: 'pointer',
+            whiteSpace: 'nowrap',
             transition: 'background 0.9s ease-out, box-shadow 0.9s ease-out',
             outline: 'none',
           }}
