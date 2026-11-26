@@ -138,13 +138,13 @@ const ICON_SVGS: Record<string, React.ReactElement> = {
       <path d="M12 9.8V6"/><path d="M8.9 10.3L7.2 7.4"/><path d="M15.1 10.3L16.8 7.4"/>
     </svg>
   ),
-  'Sound Bath': (
+  Distance: (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
          stroke="rgba(233,207,168,0.75)" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 13C5 16.6 8.1 18.6 12 18.6C15.9 18.6 19 16.6 19 13"/>
-      <path d="M4.2 13H19.8"/>
-      <path d="M9 9.4C10.8 8.2 13.2 8.2 15 9.4"/>
-      <path d="M7.4 6.7C10.2 4.9 13.8 4.9 16.6 6.7"/>
+      <circle cx="7" cy="12" r="1.7" fill="rgba(233,207,168,0.75)" stroke="none"/>
+      <path d="M11 8.3A5 5 0 0 1 11 15.7"/>
+      <path d="M14 6.3A8 8 0 0 1 14 17.7" opacity="0.6"/>
+      <path d="M17 4.5A11 11 0 0 1 17 19.5" opacity="0.32"/>
     </svg>
   ),
   Breathwork: (
@@ -157,7 +157,7 @@ const ICON_SVGS: Record<string, React.ReactElement> = {
     </svg>
   ),
 };
-const ICON_LABELS = ['Meditation', 'Chakra', 'Reiki', 'Sound Bath', 'Breathwork'] as const;
+const ICON_LABELS = ['Meditation', 'Chakra', 'Reiki', 'Distance', 'Breathwork'] as const;
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export function HeroField() {
@@ -858,7 +858,7 @@ export function HeroField() {
             Begin
           </button>
           <div style={{ fontSize: 12.5, letterSpacing: '0.05em', color: 'rgba(233,224,212,0.68)', maxWidth: 280 }}>
-            Free 15-minute conversation. No commitment.
+            Online Reiki on Google Meet · ₹499 · Free 15-min chat first
           </div>
         </div>
 

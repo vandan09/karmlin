@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { CONTACT } from '@/lib/constants';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,7 +46,7 @@ export function Practitioner() {
           The practitioner
         </p>
         <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: 'clamp(28px, 4vw, 48px)', margin: 0, color: '#efe6d8' }}>
-          Who you'll be with.
+          Meet Disha.
         </h2>
       </div>
 
@@ -58,21 +59,24 @@ export function Practitioner() {
       >
         {/* Bio */}
         <div style={GLASS}>
+          <p style={{ fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(233,207,168,0.78)', margin: '0 0 14px' }}>
+            {CONTACT.practitioner} · {CONTACT.city}
+          </p>
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: 'clamp(22px, 2.4vw, 30px)', lineHeight: 1.45, color: '#ece3d6', margin: '0 0 22px' }}>
-            I came to this because I needed it first. A stretch of years where I couldn't put anything down.
+            A space for tired souls to breathe again.
           </p>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(233,224,212,0.78)', margin: '0 0 14px' }}>
-            Someone held space for me before I knew that was a thing you could do for a person. It changed the shape of my days. I trained so I could offer the same quiet back.
+            I&apos;m Disha, a Reiki Master-Teacher, dietitian and yoga coach. I bring all three into the room: energy work to help you let go, breath and movement to steady you, and a practical eye on how you look after your body day to day.
           </p>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(233,224,212,0.78)', margin: '0 0 26px' }}>
-            Now I sit with people on the hard days and the ordinary ones, and let the work do what it does.
+            I&apos;m based in Vadodara and see people online from across India and around the world, in English or Hindi. You don&apos;t need to know anything about Reiki to begin. You just need to show up.
           </p>
           <div style={{
             fontSize: 12, letterSpacing: '0.06em',
             color: 'rgba(233,224,212,0.6)', lineHeight: 1.9,
             borderTop: '1px solid rgba(233,224,212,0.1)', paddingTop: 18,
           }}>
-            Usui Reiki Master · Certified Sound Practitioner · 500hr Trauma-Informed Training
+            Reiki Master-Teacher (Levels 1, 2, 3 &amp; Master) · Dietitian · Yoga Coach
           </div>
         </div>
       </div>

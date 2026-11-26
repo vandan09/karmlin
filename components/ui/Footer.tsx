@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { BookingModal } from './BookingModal';
+import { CONTACT } from '@/lib/constants';
 
 export function Footer() {
   const [open, setOpen] = useState(false);
@@ -30,18 +31,28 @@ export function Footer() {
           color: 'rgba(239,230,216,0.8)',
         }}>
           KARMLIN
+          <span style={{ display: 'block', fontFamily: "'Karla', sans-serif", fontSize: 11.5, letterSpacing: '0.08em', color: 'rgba(233,224,212,0.5)', marginTop: 6 }}>
+            Reiki with {CONTACT.practitioner} · {CONTACT.city} &amp; online
+          </span>
         </span>
         <div style={{ display: 'flex', flexWrap: isMobile ? 'wrap' : 'nowrap', gap: isMobile ? 14 : 26, alignItems: 'center', fontSize: 13, color: 'rgba(233,224,212,0.68)' }}>
+          {CONTACT.whatsapp && (
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'rgba(233,224,212,0.68)', textDecoration: 'none' }}
+            >
+              WhatsApp
+            </a>
+          )}
+          {CONTACT.email && (
+            <a href={`mailto:${CONTACT.email}`} style={{ color: 'rgba(233,224,212,0.68)', textDecoration: 'none' }}>
+              {CONTACT.email}
+            </a>
+          )}
           <a
-            href="mailto:hello@karmlin.studio"
-            style={{ color: 'rgba(233,224,212,0.68)', textDecoration: 'none' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#f2e3c4'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(233,224,212,0.68)'; }}
-          >
-            hello@karmlin.studio
-          </a>
-          <a
-            href="https://instagram.com/karmlin"
+            href={`https://instagram.com/${CONTACT.instagram}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(233,224,212,0.68)', textDecoration: 'none' }}
@@ -54,7 +65,7 @@ export function Footer() {
               <circle cx="12" cy="12" r="4"/>
               <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
             </svg>
-            @karmlin
+            @{CONTACT.instagram}
           </a>
           <button
             onClick={() => setOpen(true)}

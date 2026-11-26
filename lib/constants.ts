@@ -1,3 +1,23 @@
+// ─── Contact & offer (edit these — the whole site reads from here) ───────────
+export const CONTACT = {
+  practitioner: 'Disha Pandya',
+  city: 'Vadodara',
+  instagram: 'karmlin_',
+  // WhatsApp number with country code, digits only, e.g. '919876543210'.
+  // Leave '' to hide the WhatsApp and Call buttons.
+  whatsapp: '',
+  // Leave '' to hide the email link.
+  email: '',
+} as const;
+
+export const OFFER = {
+  price: '₹499',
+  priceNote: 'per session',
+  where: 'Live on Google Meet',
+  languages: 'English or Hindi',
+  reach: 'From anywhere in the world',
+} as const;
+
 // ─── Brand colours ───────────────────────────────────────────────────────────
 export const COLORS = {
   // backgrounds
@@ -101,44 +121,44 @@ export const OFFERINGS = [
   {
     id: 'reiki',
     name: 'Reiki',
-    duration: '60 MIN',
-    desc: 'Hands rest lightly on or just above you, and the body quietly unwinds.',
+    duration: 'ONLINE · ₹499',
+    desc: 'You lie down at home, on a Google Meet call. Disha works with your energy while you simply rest.',
     iconPath: 'reiki',
   },
   {
-    id: 'sound-bath',
-    name: 'Sound Bath',
-    duration: '50 MIN',
-    desc: 'Singing bowls and gentle tones wash over you. You just lie still and listen.',
-    iconPath: 'sound-bath',
+    id: 'distance',
+    name: 'Distance Healing',
+    duration: 'ONLINE · ₹499',
+    desc: 'The same session, sent to you wherever you are — Vadodara, Mumbai, London or Toronto.',
+    iconPath: 'distance',
+  },
+  {
+    id: 'chakra',
+    name: 'Chakra Balancing',
+    duration: 'ONLINE · ₹499',
+    desc: 'Attention moves through your seven energy centres, root to crown, until they align.',
+    iconPath: 'chakra',
   },
   {
     id: 'meditation',
     name: 'Meditation',
-    duration: '45 MIN',
+    duration: 'ONLINE · ₹499',
     desc: 'Guided and unhurried — a calm place to set a busy mind down for a while.',
     iconPath: 'meditation',
   },
   {
     id: 'breathwork',
     name: 'Breathwork',
-    duration: '50 MIN',
-    desc: 'Simple guided breathing that slows you down and steadies how you feel.',
+    duration: 'ONLINE · ₹499',
+    desc: 'Simple guided breathing from a yoga coach, to slow you down and steady how you feel.',
     iconPath: 'breathwork',
   },
   {
-    id: 'chakra',
-    name: 'Chakra Balancing',
-    duration: '60 MIN',
-    desc: 'Attention moves through your seven energy centres, root to crown, until they align.',
-    iconPath: 'chakra',
-  },
-  {
-    id: 'distance',
-    name: 'Distance Healing',
-    duration: '45 MIN',
-    desc: 'The same session, sent to you wherever you are. Distance makes no difference.',
-    iconPath: 'distance',
+    id: 'learn',
+    name: 'Learn Reiki',
+    duration: 'LEVEL 1 · 2 · 3',
+    desc: 'Disha is a Reiki Master-Teacher. Learn to give Reiki to yourself and others, one level at a time.',
+    iconPath: 'learn',
   },
 ] as const;
 
@@ -152,70 +172,40 @@ export const SESSION_STAGES = [
 ] as const;
 
 // ─── Testimonials (voices) ────────────────────────────────────────────────────
-export const VOICES = [
-  {
-    id: 'maya',
-    name: 'Maya',
-    service: 'Reiki',
-    location: 'Portland, OR',
-    quote: 'I slept through the night for the first time in two years.',
-    size: 158,
-    pos: { left: '14%', top: '14%' },
-  },
-  {
-    id: 'daniel',
-    name: 'Daniel',
-    service: 'Sound Bath',
-    location: 'Austin, TX',
-    quote: 'I stopped bracing for a phone call that never comes.',
-    size: 140,
-    pos: { left: '62%', top: '9%' },
-  },
-  {
-    id: 'priya',
-    name: 'Priya',
-    service: 'Chakra Balancing',
-    location: 'Brooklyn, NY',
-    quote: 'I cried for ten minutes and then felt lighter than I have in a year.',
-    size: 168,
-    pos: { left: '38%', top: '44%' },
-  },
-  {
-    id: 'tomas',
-    name: 'Tomás',
-    service: 'Breathwork',
-    location: 'Denver, CO',
-    quote: 'My shoulders came down from my ears and stayed there.',
-    size: 132,
-    pos: { left: '76%', top: '52%' },
-  },
-  {
-    id: 'ana',
-    name: 'Ana',
-    service: 'Distance',
-    location: 'Chicago, IL',
-    quote: 'I didn\'t have to explain myself. I just got to rest.',
-    size: 128,
-    pos: { left: '18%', top: '66%' },
-  },
-] as const;
+// Real client words only. Add an entry after each session with the client's
+// permission, e.g. { id: 'r1', name: 'Riya', service: 'Reiki', location: 'Pune',
+// quote: '...', size: 150, pos: { left: '14%', top: '14%' } }.
+// The section stays hidden while this list is empty.
+export interface Voice {
+  id: string; name: string; service: string; location: string; quote: string;
+  size: number; pos: { left: string; top: string };
+}
+export const VOICES: Voice[] = [];
 
 // ─── FAQ ─────────────────────────────────────────────────────────────────────
 export const FAQ_ITEMS = [
   {
-    q: 'Do I have to believe in it for it to work?',
-    a: 'No. You can be a complete skeptic and still feel your nervous system settle. Belief isn\'t the mechanism — rest is. Come as you are, doubts included.',
+    q: 'How does an online session work?',
+    a: 'We meet on Google Meet. You find a quiet spot, lie down or sit comfortably, and keep the camera on or off — your choice. We talk for a few minutes, then you rest while I work. At the end we talk about what you noticed.',
   },
   {
-    q: 'Will you touch me?',
-    a: 'Only if you want me to, and we agree on it first. Hands-off sessions work just as well. You stay fully clothed throughout, and you can change your mind at any point.',
+    q: 'Can Reiki really work over a video call?',
+    a: 'Distance Reiki is a standard part of Reiki training, taught at Level 2. Many people find it just as relaxing as being in the room. The easiest way to know is the free 15-minute chat, then one session.',
+  },
+  {
+    q: 'How do I book and pay?',
+    a: 'Message me on Instagram (send "HEAL") or WhatsApp. We pick a time that works in your time zone, and I share payment details — UPI in India, and an easy option if you are abroad. A session is ₹499.',
+  },
+  {
+    q: 'Which language are sessions in?',
+    a: 'English or Hindi — whichever you are more comfortable in.',
   },
   {
     q: 'What if I feel nothing?',
-    a: 'That\'s common and completely fine. Some people feel heat or tingling; some just feel like they had a long nap. The work isn\'t measured by sensation — it\'s measured by how you sleep that night.',
+    a: 'That is common and completely fine. Some people feel warmth or tingling; some just feel like they had a long nap. Come as you are, doubts included.',
   },
   {
     q: 'Is this instead of medicine?',
-    a: 'No. Alongside — never instead. Keep your doctor, your prescriptions, your therapist. This sits beside your care, it does not replace any of it. If anything feels medical, I\'ll tell you to go see someone who can help.',
+    a: 'No. Alongside — never instead. Keep your doctor, your prescriptions, your therapist. This sits beside your care; it does not replace any of it. If anything sounds medical, I will ask you to see someone who can help.',
   },
 ] as const;

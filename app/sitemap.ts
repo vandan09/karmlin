@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://karmlin.studio';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://karmlin.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

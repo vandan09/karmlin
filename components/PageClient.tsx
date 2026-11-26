@@ -5,6 +5,8 @@ import { Exhale }      from '@/components/sections/Exhale';
 import { EnergyFlow }  from '@/components/sections/EnergyFlow';
 import { SessionFlow } from '@/components/sections/SessionFlow';
 import { FAQ }         from '@/components/sections/FAQ';
+import { Pricing }     from '@/components/sections/Pricing';
+import { VOICES }      from '@/lib/constants';
 
 // Client-only lazy sections (canvas / intersection observers)
 const Offerings    = dynamic(() => import('@/components/sections/Offerings').then(m => ({ default: m.Offerings })),       { ssr: false });
@@ -21,8 +23,9 @@ export function PageClient() {
         <EnergyFlow />
         <Offerings />
         <SessionFlow />
-        <Voices />
         <Practitioner />
+        <Pricing />
+        {VOICES.length > 0 && <Voices />}
         <FAQ />
       </main>
     </>

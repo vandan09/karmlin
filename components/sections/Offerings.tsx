@@ -45,6 +45,13 @@ const OfferingIcons: Record<string, React.ReactElement> = {
       <circle cx="8.6" cy="12" r="1.1"/><circle cx="15.4" cy="12" r="1.1"/>
     </svg>
   ),
+  learn: (
+    <svg width="27" height="27" viewBox="0 0 24 24" fill="none"
+         stroke="rgba(233,207,168,0.8)" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 6.5C10 5 7.2 4.6 4.5 5.2V18.2C7.2 17.6 10 18 12 19.5C14 18 16.8 17.6 19.5 18.2V5.2C16.8 4.6 14 5 12 6.5Z"/>
+      <path d="M12 6.5V19.5"/>
+    </svg>
+  ),
   distance: (
     <svg width="27" height="27" viewBox="0 0 24 24" fill="none"
          stroke="rgba(233,207,168,0.8)" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -86,6 +93,7 @@ function useReveal() {
 
 export function Offerings() {
   const [open, setOpen] = useState(false);
+  const [topic, setTopic] = useState<string | undefined>();
   const headRef = useReveal();
 
   return (
@@ -100,7 +108,7 @@ export function Offerings() {
           style={{ opacity: 0, transition: 'opacity 2s ease-out', textAlign: 'center', marginBottom: '6vh' }}
         >
           <p style={{ fontSize: 12, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(233,207,168,0.78)', marginBottom: 16, margin: '0 0 16px' }}>
-            What we offer
+            What I offer
           </p>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: 'clamp(30px, 4.4vw, 52px)', margin: 0, color: '#efe6d8', letterSpacing: '0.01em' }}>
             Ways in.
@@ -132,7 +140,7 @@ export function Offerings() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: 12, letterSpacing: '0.1em', color: 'rgba(233,224,212,0.62)' }}>{o.duration}</span>
                 <button
-                  onClick={() => setOpen(true)}
+                  onClick={() => { setTopic(o.name); setOpen(true); }}
                   style={{
                     background: 'none', border: 'none', padding: 0,
                     fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic',
@@ -143,7 +151,7 @@ export function Offerings() {
                   onBlur={e =>     { e.currentTarget.style.color = '#e6cfa8'; }}
                   onMouseEnter={e => { e.currentTarget.style.color = '#f2e3c4'; }}
                   onMouseLeave={e => { e.currentTarget.style.color = '#e6cfa8'; }}
-                  aria-label={`Begin ${o.name} — open booking form`}
+                  aria-label={`Begin ${o.name} — contact Disha`}
                 >
                   Begin
                 </button>
@@ -152,7 +160,7 @@ export function Offerings() {
           ))}
         </div>
       </section>
-      <BookingModal open={open} onClose={() => setOpen(false)} carrying={[]} />
+      <BookingModal open={open} onClose={() => setOpen(false)} carrying={[]} topic={topic} />
     </>
   );
 }

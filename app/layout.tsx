@@ -18,20 +18,21 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title:       { default: 'Karmlin — Energy Healing & Meditation', template: '%s | Karmlin' },
-  description: 'Reiki, sound bath, chakra balancing, breathwork and distance healing sessions. A free 15-minute conversation to start.',
-  keywords:    ['reiki', 'sound bath', 'chakra balancing', 'breathwork', 'meditation', 'energy healing'],
+  title:       { default: 'Karmlin — Online Reiki with Disha Pandya', template: '%s | Karmlin' },
+  description: 'Online Reiki and energy healing with Disha Pandya, Reiki Master-Teacher in Vadodara. Live on Google Meet in English or Hindi, ₹499 per session, for clients in India and worldwide. Free 15-minute chat to start.',
+  keywords:    ['online reiki', 'reiki vadodara', 'distance reiki', 'reiki healing india', 'reiki master', 'learn reiki', 'chakra balancing', 'energy healing', 'reiki in hindi'],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://karmlin.vercel.app'),
   openGraph: {
     type:        'website',
-    locale:      'en_US',
+    locale:      'en_IN',
     siteName:    'Karmlin',
-    title:       'Karmlin — Energy Healing & Meditation',
-    description: 'Reiki, sound bath, chakra balancing, breathwork and distance healing sessions. A free 15-minute conversation to start.',
+    title:       'Karmlin — Online Reiki with Disha Pandya',
+    description: 'Online Reiki and energy healing with Disha Pandya, Reiki Master-Teacher in Vadodara. Live on Google Meet in English or Hindi, ₹499 per session, for clients in India and worldwide. Free 15-minute chat to start.',
   },
   twitter: {
     card:        'summary_large_image',
-    title:       'Karmlin — Energy Healing & Meditation',
-    description: 'Reiki, sound bath, chakra balancing, breathwork and distance healing sessions.',
+    title:       'Karmlin — Online Reiki with Disha Pandya',
+    description: "Online Reiki and energy healing with Disha Pandya, Reiki Master-Teacher in Vadodara. Live on Google Meet in English or Hindi, ₹499 per session, for clients in India and worldwide. Free 15-minute chat to start.",
   },
   robots: { index: true, follow: true },
 };
